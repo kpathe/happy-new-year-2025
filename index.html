@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 🎉🥳 2025</title>
+    <style>
+        body {
+            background-color: #f4f1e6; /* Paper-like background */
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b0082;
+            margin-top: 5vh;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin: 3vh auto;
+            color: #d2691e;
+            font-size: 1.8rem;
+            padding: 10px;
+            background: #faebd7;
+            border: 2px dashed #d2691e;
+            width: fit-content;
+        }
+
+        #timeleft {
+            text-align: center;
+            font-size: 1.5rem;
+            color: greenyellow;
+            background-color: rgb(0, 0, 0);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 2vh auto;
+            width: fit-content;
+        }
+
+        #clock {
+            text-align: center;
+            font-size: 1.2rem;
+            color: red;
+            background-color: #add8e6;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #000;
+            width: fit-content;
+            margin: 2vh auto;
+        }
+
+        hr {
+            width: 20%;
+            border: none;
+            border-top: 2px solid #4b0082;
+            margin: 1vh auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="wish">HAPPY NEW YEAR 🎉🥳 <hr>2025</h1>
+
+    <h2>Time left for PROTOTYPE LAUNCH</h2>
+
+    <p id="timeleft"></p>
+
+    <p id="clock"></p>
+
+    <p style="text-align: center; margin-top: 260px;"><a href="./index2.html">Click here to watch my version...!</a></p>
+
+    <script>
+        // jis date se countdown shuru krna hai usko ek variable mei daal do..
+        var countDown1 = new Date("May 12, 2025 18:19:58").getTime();
+
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+
+            var distance = countDown1 - now;
+
+            // time ki lambi chaudi calculation kr li jaaye ... bhle hi chhap rha hun :)
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60)) / 1000 / 60);
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // display the result in p with id="timeleft"
+            const timeleft = document.getElementById("timeleft");
+            timeleft.innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+
+            const clock = document.getElementById("clock");
+            clock.innerText = `Current Time: ${new Date().toLocaleTimeString()}`;
+
+            if (distance < 0) {
+                clearInterval(x);
+                timeleft.innerText = "Time's UP! Congratulations YOU DID IT 🎉😌";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
